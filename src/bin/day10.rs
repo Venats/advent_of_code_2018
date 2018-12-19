@@ -40,7 +40,7 @@ fn print_stars(stars: &Vec<Star>) ->() {
     for star in stars.iter() {
         rows.entry(star.pos.1 - y_shift).or_insert(Vec::new()).push(star.pos.0 - x_shift);
     }
-    for y_val in (0..y_max+1){
+    for y_val in 0..y_max+1{
         let mut row_str = (0..x_max+1).map(|_| " ").collect::<String>();
         if let Some(x_vec) = rows.get_mut(&y_val) {
             x_vec.sort();
@@ -79,9 +79,9 @@ fn find_min_y_generation(mut stars:  Vec<Star>) -> u32{
 
 
 fn main() {
-    let mut f = File::open("./data/day10.txt").expect("file not found");
+    let f = File::open("./data/day10.txt").expect("file not found");
     let file = BufReader::new(&f);
-    let mut input = input_stars(file);
+    let input = input_stars(file);
     let gen = find_min_y_generation(input);
 
     println!("{}",gen);
