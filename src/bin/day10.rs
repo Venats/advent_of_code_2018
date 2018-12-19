@@ -36,7 +36,6 @@ fn print_stars(stars: &Vec<Star>) ->() {
     let y_max = stars.iter().max_by(|&star1, &star2| star1.pos.1.cmp(&star2.pos.1)).unwrap().pos.1 - y_shift;
     let x_shift = stars.iter().min_by(|&star1, &star2| star1.pos.0.cmp(&star2.pos.0)).unwrap().pos.0;
     let x_max = stars.iter().max_by(|&star1, &star2| star1.pos.0.cmp(&star2.pos.0)).unwrap().pos.0 - x_shift;
-    // let max_x =  stars.iter().max_by(|&star1, &star2| star1.pos.0.cmp(&star2.pos.0)).unwrap().pos.0 - x_shift;
     for star in stars.iter() {
         rows.entry(star.pos.1 - y_shift).or_insert(Vec::new()).push(star.pos.0 - x_shift);
     }
