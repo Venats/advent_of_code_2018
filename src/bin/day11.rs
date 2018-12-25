@@ -54,9 +54,8 @@ fn main() {
     println!("(x: {}, y: {}) , value:{}", answer.0, answer.1 , answer.2);
 
     let mut powers = Vec::new();
-    // takes probably 3 minutes
+    // takes probably 3 minutes if unoptimized
     for x in 1..GRID_SIZE {
-        println!("x = {}",x);
         powers.push(find_max_power(&power_grid,x as usize));
     }
     let (square,answer2) = powers.iter().enumerate().max_by(|(_,x),(_,y)| x.2.cmp(&y.2)).unwrap();
